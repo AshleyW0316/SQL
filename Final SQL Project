@@ -112,3 +112,16 @@ ON emp.employeeid = cust.supportrepid
 JOIN chinook.invoices AS inv
 ON cust.customerid = inv.customerid
 WHERE inv.billingcountry = 'USA';
+
+#17. What genre types were sold in the USA in order from the most to the least?
+SELECT g.name AS Genre_Type, COUNT(*) AS Sales_Count, inv.billingcountry
+FROM chinook.genres AS g
+JOIN chinook.tracks AS t
+ON g.genreid = t.genreid
+JOIN chinook.invoice_items AS inv_items
+ON t.trackid = inv_items.trackid
+JOIN chinook.invoices AS inv
+ON inv_items.invoiceid = inv.invoiceid
+WHERE inv.billingcountry = 'USA'
+GROUP BY Genre_Type
+ORDER BY Sales_Count DESC;
