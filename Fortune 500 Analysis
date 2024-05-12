@@ -59,7 +59,7 @@ VALUES
 #Select all of the data from the table.
 SELECT * FROM fortune_companies;
 
-#Use the sum to aggregate how many compnies are in the Technology industry.
+#Use the sum to aggregate how many companies are in the Technology industry.
 SELECT industry, SUM(industry= "Technology") AS "total_tech_industries"
 FROM fortune_companies;
 
